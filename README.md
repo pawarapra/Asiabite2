@@ -18,6 +18,6 @@ Will return something like:
 Then copy that and add /logs
 `/Users/ppraweenwongwuth/Documents/GitHub/Asiabite2/logs`
 
-Make sure there is a logs/ folder in the project directory
+Make sure there is a `logs/` folder in the project directory
 
 The rerun `npm install`
