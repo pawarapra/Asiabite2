@@ -24,7 +24,7 @@ export const mainTheme = createTheme({
         Button: (buttonProps) => ({
             
             buttonStyle: {
-                width: '170%', 
+                width: '100%', 
                 raised: true,
                 borderRadius: 10,
                 backgroundColor: themePalette.yellowtheme,
@@ -32,6 +32,7 @@ export const mainTheme = createTheme({
                 alignItems: 'center',
             },
             titleStyle: {
+                width: '100%', 
                 color: themePalette.primary,
                 fontSize: 22,  
                 textAlign: 'center',
