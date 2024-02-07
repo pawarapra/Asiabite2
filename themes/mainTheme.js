@@ -40,8 +40,15 @@ export const mainTheme = createTheme({
             disabledStyle: {
                 backgroundColor: themePalette.greyDarker,
             },
-
-
+            subButtonStyle:{
+                width: '100%',
+                color: themePalette.creamtheme, 
+                raised: true,
+                borderRadius: 10,
+                backgroundColor: themePalette.redtheme,
+                justifyContent: 'center', 
+                alignItems: 'center',
+            }
         }),
 
 
@@ -53,28 +60,23 @@ export const mainTheme = createTheme({
                        
                 // fontFamily: (Platform.OS === 'ios') ? 'Baskerville' : 'serif',                
             },
-            // h2Style: {
-            //     color: themePalette.primaryLighter,
-            //     fontSize: 26,
-            //     marginBottom: 10
-            // },
-            // h3Style: {
-            //     color: themePalette.primaryLighter,
-            //     fontSize: 20,
-            //     margin: 5
-            // },
-            // style: {
-            //     margin: 5
-            // }
+            h2Style:{
+                color: themePalette.redtheme,
+                fontWeight: 'bold',
+                fontSize: 27, 
+            },
+            h3Style:{
+                color: themePalette.creamtheme,
+                fontWeight: 600,
+                fontSize: 22,
+                marginBottom: 14,
+            },
+            style:{
+                color: themePalette.primary,
+                fontSize: 12,
+                
+            }
         },
-
-
-
-
-
-
-
-
 
 
         // Avatar: {

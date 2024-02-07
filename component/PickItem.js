@@ -1,5 +1,5 @@
 import { StyleSheet, View, Image } from 'react-native';
-import { Button, Text } from '@rneui/themed';
+import { Text } from '@rneui/themed';
 
 export default function PickItem({ box }){
     const pickImg = box.pickImgPath.map((item, index) => 
@@ -12,10 +12,10 @@ export default function PickItem({ box }){
 
     return(
         <View style={myStyles.container}>
-            <Text>
-                THE TOP PICKS THAT COME WITH THIS box1 &#x1F61D;
+            <Text style={{paddingBottom: 16}}>
+                THE TOP PICKS THAT COME WITH THIS BOX &#x1F61D;
             </Text>
-            <View >
+            <View style={myStyles.itemflex}>
                 {pickImg}
             </View>
         </View>
@@ -24,7 +24,11 @@ export default function PickItem({ box }){
 
 const myStyles = StyleSheet.create({
     container:{
+        flexDirection: 'column',
+        alignItems: 'center',
         width: '100%',
+        marginVertical: 14,
+        padding: 16,
         backgroundColor: '#F5C94A',
         borderRadius: 10
     },
@@ -33,7 +37,8 @@ const myStyles = StyleSheet.create({
         height: 36
     },
     itemflex: {
+        width: '100%',
         flexDirection: 'row',
-
+        justifyContent: 'space-between',
     }
 })
