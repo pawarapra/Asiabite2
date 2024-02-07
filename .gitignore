@@ -33,3 +33,7 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+logs/*
+!.gitkeep
+# logs/_cacache/**/*.* */
