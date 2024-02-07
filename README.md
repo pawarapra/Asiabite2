@@ -22,4 +22,4 @@ Make sure there is a `logs/` folder in the project directory
 
 The rerun `npm install`
 
-The code should now install as expected.
+The code should now install as expected 🎉🎉🎉
