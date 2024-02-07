@@ -1,44 +1,102 @@
-import React from "react";
-import { StyleSheet, View, Text, Image, Button, TextInput } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View, Image,  TextInput } from "react-native";
+
+import { Text, Button, } from '@rneui/themed';
 
 export default function SubPage({ navigation }) {
-
-  const [text, onChangeText] = React.useState('your email');
-
-  
+  const [email, setEmail] = useState('example@email.com');
+  const [firstName, setFirstName] = useState('first name');
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container1}>
+      <Text style={styles.h1} h1>
+        Subscribe To Our Newsletter!
+      </Text>
+      <Text style={styles.ptext}>
+        Subscribe to our newsletter to be the first to know about product launches and exclusive offers!
+      </Text>
+      <View style={styles.middlesection}>
+        <Image style={styles.titleImage} source={require('../assets/icon.png')} />
 
-      <Text>Something</Text>
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.input}
+            onChangeText={setEmail}
+            value={email}
+            placeholder="E-MAIL"
+            placeholderTextColor="#fbfaee"
+          />
+          <Text style={styles.inputLabel}>E-MAIL</Text>
+        </View>
 
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
-      />
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.input}
+            onChangeText={setFirstName}
+            value={firstName}
+            placeholder="First Name"
+            placeholderTextColor="#fbfaee"
+          />
+          <Text style={styles.inputLabel}>NAME</Text>
+        </View>
 
-      <Button
-        title="Submit"
-        onPress={() => navigation.navigate('Thankyou')}
-      />
+        <Button
+          title="Subscribe"
+          onPress={() => navigation.navigate('Thankyou')}
+        />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container1: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#fff",
+    justifyContent: 'flex-start',
+    backgroundColor: "#1e3f8e",
+    padding: 20,
   },
-
+  middlesection: {
+    alignItems: 'center',
+  },
+  h1: {
+    textAlign: 'left',
+  },
+  titleImage: {
+    aspectRatio: 1,
+    height: 226,
+    width: '100%',
+    borderRadius: 10,
+    marginVertical: 30,
+  },
   input: {
-    height: 40,
-    width: '80%',
+    height: 43,
+    width: '100%',
     marginVertical: 12,
     borderWidth: 1,
-    padding: 10,
+    borderRadius: 10,
+    padding: 10 ,
+    color: '#fbfaee',
+    borderColor: '#fbfaee',
   },
+  ptext: {
+    fontSize: 15,
+    textAlign: 'left',
+    color: '#fbfaee',
+  },
+  inputContainer: {
+    position: 'relative',
+    width: '100%',
+  },
+  inputLabel: {
+    fontSize: 15,
+    backgroundColor: '#1e3f8e',
+    position: 'absolute',
+    top: 0,
+    left: 10,
+    zIndex: 1,
+    color: '#fbfaee',
+  },
+  
+
 });

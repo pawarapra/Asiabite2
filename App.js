@@ -1,6 +1,10 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+
+import { ThemeProvider } from '@rneui/themed';
+import { mainTheme } from './themes/mainTheme';
+
 import HomeScreen from './screen/HomeScreen';
 import FlowerDetailScreen from './screen/FlowerDetailsScreen';
 import SubPage from './screen/SubPage';
@@ -11,6 +15,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return(
+    <ThemeProvider theme={mainTheme}>  
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
@@ -33,5 +38,6 @@ export default function App() {
         
       </Stack.Navigator>
     </NavigationContainer>
+    </ThemeProvider> 
   );
 }
