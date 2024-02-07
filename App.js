@@ -6,9 +6,9 @@ import { ThemeProvider } from '@rneui/themed';
 import { mainTheme } from './themes/mainTheme';
 
 import HomeScreen from './screen/HomeScreen';
-import FlowerDetailScreen from './screen/FlowerDetailsScreen';
 import SubPage from './screen/SubPage';
 import ThankyouScreen from './screen/ThankyouScreen';
+import ItemDetailScreen from './screen/ItemDetailScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +25,7 @@ export default function App() {
         />
         <Stack.Screen
           name="FlowerDetail"
-          component={FlowerDetailScreen}
+          component={ItemDetailScreen}
         />
         <Stack.Screen
           name="SubPage"

@@ -77,7 +77,6 @@ export const mainTheme = createTheme({
 
 
 
-
         // Avatar: {
         //     avatarStyle: {
         //         borderColor: themePalette.primary,
