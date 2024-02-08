@@ -6,28 +6,37 @@ import { db } from '../FirebaseConfig';
 import { ref, set } from 'firebase/database';
 
 export default function SubPage({ navigation }) {
-  const [email, setEmail] = useState('example@email.com');
-  const [firstName, setFirstName] = useState('first name');
+  const [email, setEmail] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [isError, isSetError] = useState(false);
+
+  const goToThx = () => navigation.navigate('Thankyou')
 
   const dataAdd = () => {
     if (!email || !firstName) {
       console.error("Email and first name are required.");
+      isSetError(true);
       return;
     }
-  
+
     // Validate email format
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       console.error("Invalid email address.");
+      isSetError(true);
       return;
     }
-
+    // Post info to Firebase
     set(ref(db, 'posts/' + firstName), {
       name: firstName,
       email: email,
+    }).then(() => {
+      //once info is succesfully submitted, direct to ThankyouScreen
+      setFirstName('')
+      setEmail('')
+      goToThx()
     });
-    setFirstName('')
-    setEmail('')
+    
   }
 
   return (
@@ -43,10 +52,10 @@ export default function SubPage({ navigation }) {
 
         <View style={styles.inputContainer}>
           <TextInput
-            style={styles.input}
+            style={isError ? styles.inputError : styles.input}
             onChangeText={(text) => setEmail(text)}
             value={email}
-            placeholder="E-MAIL"
+            placeholder="example@email.com"
             placeholderTextColor="#fbfaee"
           />
           <Text style={styles.inputLabel}>E-MAIL</Text>
@@ -54,7 +63,7 @@ export default function SubPage({ navigation }) {
 
         <View style={styles.inputContainer}>
           <TextInput
-            style={styles.input}
+            style={isError ? styles.inputError : styles.input}
             onChangeText={(text) => setFirstName(text)}
             value={firstName}
             placeholder="First Name"
@@ -101,6 +110,16 @@ const styles = StyleSheet.create({
     padding: 10 ,
     color: '#fbfaee',
     borderColor: '#fbfaee',
+  },
+  inputError:{
+    height: 43,
+    width: '100%',
+    marginVertical: 12,
+    borderWidth: 2,
+    borderRadius: 10,
+    padding: 10 ,
+    color: '#fbfaee',
+    borderColor: '#d13337',
   },
   ptext: {
     fontSize: 15,
