@@ -56,6 +56,7 @@ const myStyles = StyleSheet.create({
         marginLeft: 18,
     },
     itemName:{
+        textAlign: 'right',
         fontSize: 16,
         fontWeight: '500',
     },

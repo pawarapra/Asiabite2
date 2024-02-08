@@ -1,11 +1,34 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Image,  TextInput } from "react-native";
-
 import { Text, Button, } from '@rneui/themed';
+
+import { db } from '../FirebaseConfig';
+import { ref, set } from 'firebase/database';
 
 export default function SubPage({ navigation }) {
   const [email, setEmail] = useState('example@email.com');
   const [firstName, setFirstName] = useState('first name');
+
+  const dataAdd = () => {
+    if (!email || !firstName) {
+      console.error("Email and first name are required.");
+      return;
+    }
+  
+    // Validate email format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      console.error("Invalid email address.");
+      return;
+    }
+
+    set(ref(db, 'posts/' + firstName), {
+      name: firstName,
+      email: email,
+    });
+    setFirstName('')
+    setEmail('')
+  }
 
   return (
     <View style={styles.container1}>
@@ -21,7 +44,7 @@ export default function SubPage({ navigation }) {
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
-            onChangeText={setEmail}
+            onChangeText={(text) => setEmail(text)}
             value={email}
             placeholder="E-MAIL"
             placeholderTextColor="#fbfaee"
@@ -32,7 +55,7 @@ export default function SubPage({ navigation }) {
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
-            onChangeText={setFirstName}
+            onChangeText={(text) => setFirstName(text)}
             value={firstName}
             placeholder="First Name"
             placeholderTextColor="#fbfaee"
@@ -42,7 +65,7 @@ export default function SubPage({ navigation }) {
 
         <Button
           title="Subscribe"
-          onPress={() => navigation.navigate('Thankyou')}
+          onPress={dataAdd}
         />
       </View>
     </View>
