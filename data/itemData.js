@@ -1,3 +1,14 @@
+export function getAllBoxs(){
+    return ItemData;
+}
+
+export function getBoxById(id){
+
+    return ItemData.find(item => item.id === id);    
+}
+
+
+
 export default ItemData = [
     {
         id:0,
@@ -11,7 +22,8 @@ export default ItemData = [
             require('../assets/murrang.gif'),
             require('../assets/bubble-gum.gif')
         ],
-        img: 'box1.png'       
+        img: 'box1.png',
+        thumbimg: require('../assets/Thumbnail-sweetbite.png')
     },
     {
         id:1,
@@ -25,7 +37,8 @@ export default ItemData = [
             require('../assets/murrang.gif'),
             require('../assets/bubble-gum.gif')
         ],
-        img: 'box1.png'        
+        img: 'box1.png',
+        thumbimg: require('../assets/Thumbnail-svorybite.png')         
     },
     {
         id:2,
@@ -39,7 +52,8 @@ export default ItemData = [
             require('../assets/murrang.gif'),
             require('../assets/bubble-gum.gif')
         ],
-        img: 'box1.png'        
+        img: 'box1.png',
+        thumbimg: require('../assets/Thumbnail-spicebite.png')         
     },
     {
         id:3,
@@ -53,7 +67,8 @@ export default ItemData = [
             require('../assets/murrang.gif'),
             require('../assets/bubble-gum.gif')
         ],
-        img: 'box1.png'        
+        img:'box1.png',
+        thumbimg: require('../assets/Thumbnail-healthybite.png')         
     },
     {
         id:4,
@@ -67,7 +82,8 @@ export default ItemData = [
             require('../assets/murrang.gif'),
             require('../assets/bubble-gum.gif')
         ],
-        img: 'box1.png'        
+        img: 'box1.png',
+        thumbimg: require('../assets/Thumbnail-triple.png')          
     },
     {
         id:5,
@@ -81,7 +97,8 @@ export default ItemData = [
             require('../assets/murrang.gif'),
             require('../assets/bubble-gum.gif')
         ],
-        img: 'box1.png'        
+        img: 'box1.png' ,
+        thumbimg: require('../assets/Thumbnail-quad.png')       
     },
 
 ];

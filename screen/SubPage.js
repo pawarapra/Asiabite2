@@ -54,7 +54,7 @@ export default function SubPage({ navigation }) {
       </Text>
       </View>
 <View style={styles.imgsection}>
-        <Image style={styles.titleImage} source={require('../assets/icon.png')} />
+        <Image style={styles.titleImage} source={require('../assets/sub.png')} />
 </View>
         <View style={styles.middlesection}>
         <View style={styles.inputContainer}>

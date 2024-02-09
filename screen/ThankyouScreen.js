@@ -8,7 +8,7 @@ export default function ThankyouScreen({ navigation }) {
       <View style={styles.container1}>
 
           <View style={styles.imgsection}>
-          <Image style={styles.titleImage} source={require('../assets/icon.png')} />
+          <Image style={styles.titleImage} source={require('../assets/thanks.png')} />
         </View>
 
         <View style={styles.lowersection}>
@@ -51,22 +51,19 @@ Click here to resend
       flex: 1,    
       justifyContent: 'flex-start',
       backgroundColor: "#1e3f8e",
+
     },
     
       imgsection:{
+        paddingTopTop:20,
         alignItems: 'center',
         width: '100%',
+        height: 400,
         backgroundColor: '#fbfaee',
         borderBottomEndRadius: 25,
         borderBottomStartRadius: 25,
     },
-    titleImage: {
-        aspectRatio: 1,
-        height: 424,
-        width: '100%',
-        marginVertical: 10,
-        borderRadius: 25,
-    },
+
 
     lowersection: {
         alignItems: 'center',

@@ -94,13 +94,13 @@ export const mainTheme = createTheme({
         },
 
 
-        // Avatar: {
-        //     avatarStyle: {
-        //         borderColor: themePalette.primary,
-        //         borderWidth: 1,
-        //     },
-        //     size: 50
-        // },
+        Avatar: {
+            avatarStyle: {
+                borderColor: themePalette.primary,
+                borderWidth: 1,
+            },
+            size: 50
+        },
 
         // Divider: {
         //     color: themePalette.primaryLighter,

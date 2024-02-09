@@ -67,7 +67,7 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="FlowerDetail"
+           name="ItemDetailScreen"
           component={ItemDetailScreen}
         />
         <Stack.Screen
