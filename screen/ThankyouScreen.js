@@ -2,6 +2,11 @@ import { StyleSheet, View, Image, } from "react-native";
 import { Text, Button, } from '@rneui/themed';
 
 export default function ThankyouScreen({ navigation }) {
+
+  navigation.setOptions({
+    headerStyle: {
+    backgroundColor:'#fbfaee'}
+  });
     return(
        
       
@@ -55,7 +60,7 @@ Click here to resend
     },
     
       imgsection:{
-        paddingTopTop:20,
+        paddingTop:20,
         alignItems: 'center',
         width: '100%',
         height: 400,

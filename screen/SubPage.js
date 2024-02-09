@@ -8,6 +8,15 @@ import { db } from '../FirebaseConfig';
 import { ref, set } from 'firebase/database';
 
 export default function SubPage({ navigation }) {
+
+  navigation.setOptions({
+    headerStyle: {
+    backgroundColor:'#f5c94a',}
+  });
+
+
+
+
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [isError, isSetError] = useState(false);
