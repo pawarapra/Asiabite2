@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Image,  TextInput } from "react-native";
+import { StyleSheet, View, Image,  TextInput,  KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard,} from "react-native";
 import { Text, Button, } from '@rneui/themed';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+
 
 import { db } from '../FirebaseConfig';
 import { ref, set } from 'firebase/database';
@@ -40,16 +42,21 @@ export default function SubPage({ navigation }) {
   }
 
   return (
+    <KeyboardAwareScrollView behavior="padding" style={styles.flexkeyboard}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <View style={styles.container1}>
+      <View style={styles.topsection}>
       <Text style={styles.h1} h1>
         Subscribe To Our Newsletter!
       </Text>
       <Text style={styles.ptext}>
         Subscribe to our newsletter to be the first to know about product launches and exclusive offers!
       </Text>
-      <View style={styles.middlesection}>
+      </View>
+<View style={styles.imgsection}>
         <Image style={styles.titleImage} source={require('../assets/icon.png')} />
-
+</View>
+        <View style={styles.middlesection}>
         <View style={styles.inputContainer}>
           <TextInput
             style={isError ? styles.inputError : styles.input}
@@ -76,20 +83,43 @@ export default function SubPage({ navigation }) {
           title="Subscribe"
           onPress={dataAdd}
         />
+        <Text style={styles.ptext2}>
+        We respect your privacy and will only send you relevant updates about product launches and exclusive offers.
+      </Text>
       </View>
-    </View>
+</View>
+    </TouchableWithoutFeedback>
+    </KeyboardAwareScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  flexkeyboard: {
+    flex: 1,
+    backgroundColor: "#1e3f8e",
+  },
   container1: {
     flex: 1,
+    // justifyContent: 'flex-start',
     justifyContent: 'flex-start',
-    backgroundColor: "#1e3f8e",
-    padding: 20,
+    backgroundColor: "#f5c94a",
+    
   },
+    topsection: {
+      paddingHorizontal: 20,
+      paddingTop: 28,
+    },
+    imgsection:{
+      alignItems: 'center',
+    },
   middlesection: {
     alignItems: 'center',
+    backgroundColor: "#1e3f8e",
+    width: '100%',
+    paddingHorizontal: 20,
+    paddingTop: 28,
+    borderTopStartRadius: 25,
+    borderTopEndRadius: 25,
   },
   h1: {
     textAlign: 'left',
@@ -124,11 +154,17 @@ const styles = StyleSheet.create({
   ptext: {
     fontSize: 15,
     textAlign: 'left',
+  },
+  ptext2: {
+    marginVertical: 12,
+    fontSize: 12,
+    textAlign: 'center',
     color: '#fbfaee',
   },
   inputContainer: {
     position: 'relative',
     width: '100%',
+
   },
   inputLabel: {
     fontSize: 15,

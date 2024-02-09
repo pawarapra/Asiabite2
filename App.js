@@ -10,6 +10,49 @@ import SubPage from './screen/SubPage';
 import ThankyouScreen from './screen/ThankyouScreen';
 import ItemDetailScreen from './screen/ItemDetailScreen';
 
+import { useFonts } from 'expo-font';
+
+// https://www.npmjs.com/package/@expo-google-fonts/space-grotesk
+// https://www.jsdelivr.com/package/npm/@expo-google-fonts/aleo
+
+
+// import {
+//   useFonts,
+//   Aleo_300Light,
+//   Aleo_300Light_Italic,
+//   Aleo_400Regular,
+//   Aleo_400Regular_Italic,
+//   Aleo_700Bold,
+//   Aleo_700Bold_Italic,
+// } from '@expo-google-fonts/aleo';
+
+//  const [fontsLoaded] = useFonts({
+//     Aleo_300Light,
+//     Aleo_300Light_Italic,
+//     Aleo_400Regular,
+//     Aleo_400Regular_Italic,
+//     Aleo_700Bold,
+//     Aleo_700Bold_Italic,
+//   });
+
+//   import {
+//     useFonts,
+//     SpaceGrotesk_300Light,
+//     SpaceGrotesk_400Regular,
+//     SpaceGrotesk_500Medium,
+//     SpaceGrotesk_600SemiBold,
+//     SpaceGrotesk_700Bold,
+//   } from '@expo-google-fonts/space-grotesk';
+  
+//   export default () => {
+//     let [fontsLoaded] = useFonts({
+//       SpaceGrotesk_300Light,
+//       SpaceGrotesk_400Regular,
+//       SpaceGrotesk_500Medium,
+//       SpaceGrotesk_600SemiBold,
+//       SpaceGrotesk_700Bold,
+//     });
+
 const Stack = createNativeStackNavigator();
 
 

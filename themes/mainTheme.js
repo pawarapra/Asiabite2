@@ -21,40 +21,55 @@ const themePalette = {
 export const mainTheme = createTheme({    
     components: {
         
-        Button: (buttonProps) => ({
+        Button: (buttonColor) => ({
             
             buttonStyle: {
                 width: '100%', 
                 raised: true,
                 borderRadius: 10,
-                backgroundColor: themePalette.yellowtheme,
+                backgroundColor: buttonColor.buttonYellow ? themePalette.yellowtheme : themePalette.redtheme,
                 justifyContent: 'center', 
                 alignItems: 'center',
+                shadowColor: 'rgba(0, 0, 0, 0.1)',
+                shadowOpacity: 0.8 ,
+                elevation: 6,
+                shadowRadius: 15,
+                shadowOffset: {width:1, height:13},
             },
             titleStyle: {
                 width: '100%', 
-                color: themePalette.primary,
+                color: themePalette.creamtheme,
                 fontSize: 22,  
                 textAlign: 'center',
             },
             disabledStyle: {
                 backgroundColor: themePalette.greyDarker,
             },
-            subButtonStyle:{
-                width: '100%',
-                color: themePalette.creamtheme, 
-                raised: true,
-                borderRadius: 10,
-                backgroundColor: themePalette.redtheme,
-                justifyContent: 'center', 
-                alignItems: 'center',
-            }
+            // subButtonStyle:{
+            //     width: '100%',
+            //     color: themePalette.creamtheme, 
+            //     raised: true,
+            //     borderRadius: 10,
+            //     backgroundColor: themePalette.redtheme,
+            //     justifyContent: 'center', 
+            //     alignItems: 'center',
+            // },
+            // GoHomeButtonStyle:{
+            //     width: '100%',
+            //     color: themePalette.primary, 
+            //     raised: true,
+            //     borderRadius: 10,
+            //     backgroundColor: themePalette. yellowtheme,
+            //     justifyContent: 'center', 
+            //     alignItems: 'center',
+            // }
+
         }),
 
 
         Text: {
             h1Style: {
-                color: themePalette.creamtheme,
+                color: themePalette.primary,
                 fontWeight: 'bold',
                 fontSize: 27,  
                        
