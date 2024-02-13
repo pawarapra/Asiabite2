@@ -5,7 +5,7 @@ export default ItemSize = [
         sort:'+10',
         description:'Perfect for solo snacking or a cozy couple treat.',
         price: '$26.50',
-        image: require('../assets/haribo.gif')
+        image: require('../assets/size_regular_box.png')
     },
     {
         id:1,
@@ -13,7 +13,7 @@ export default ItemSize = [
         sort:'+20',
         description:'Crafted for social moments and friendly gatherings.',
         price: '$37.50',
-        image: require('../assets/haribo.gif')
+        image: require('../assets/size_combo_box.png')
     },
     {
         id:2,
@@ -21,7 +21,7 @@ export default ItemSize = [
         sort:'+30',
         description:'Experience family-sized joy with our Deluxe Box.',
         price: ' $54.50',
-        image: require('../assets/haribo.gif')
+        image: require('../assets/size_deluxe_box.png')
     },
     {
         id:3,
@@ -29,6 +29,6 @@ export default ItemSize = [
         sort:'+150',
         description:'Tailored for the office pantry, keeping the team energized.',
         price: '$175.50',
-        image: require('../assets/haribo.gif')
+        image: require('../assets/size_office_mega_box.png')
     }
 ];

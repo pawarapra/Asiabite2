@@ -6,6 +6,7 @@ export default function HomeListBox({ itemData, navigation }) {
     // Navigate to ItemDetailScreen when the thumbnail is pressed
     navigation.navigate('ItemDetailScreen', { itemId: itemData.id });
   };
+  // console.log(itemData.id);
 
   return (
     <View  style={styles.container}>

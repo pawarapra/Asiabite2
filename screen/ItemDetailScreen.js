@@ -1,34 +1,40 @@
 import { StyleSheet, View, ScrollView } from 'react-native';
 import { Button, Text, Image } from '@rneui/themed';
 
-import ItemData from '../data/itemData';
+import { getBoxById } from '../data/itemData';
 import PickItem from '../component/PickItem';
 import ItemSizeCard from '../component/ItemSizeCard';
 
 export default function ItemDetailScreen({ navigation, route }){
-    const item1 = ItemData[0];
+    const { itemId } = route.params;
+    // const item1 = getBoxById(3);
     // const { itemId } = route.params;
     // const currentBox = ItemdData(itemId);
     // console.log(item1.img); 
+    const cbox = getBoxById(itemId);
+    // console.log(itemId);
+    // console.log(cbox); 
 
 
     return(
         <View >
           <ScrollView>
             <View>
-                <Image
-                    style={myStyles.img}
-                    source={require(`../assets/box1.png`)}
-                />
+                <View style={myStyles.imgWarpper}>
+                    <Image
+                        style={myStyles.img}
+                        source={cbox.img}
+                    />
+                </View>
                 <View style={myStyles.pickContainer}>
                     <Text h2>
-                        {item1.boxname}
+                        {cbox.boxname}
                     </Text>
                     <Text>
-                        {item1.description}
+                        {cbox.description}
                     </Text>
                     <View>
-                        <PickItem box={item1}/>
+                        <PickItem box={cbox}/>
                     </View>
                 </View>
             </View>
@@ -62,10 +68,16 @@ const myStyles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingVertical: 28,
     },
+    imgWarpper:{
+        flex:1,
+        justifyContent:'center',
+        alignItems: 'center',
+        backgroundColor: '#1E3F8E',
+        borderRadius: 10,
+    },    
     img: {
-        width: '100%',
-        height: 300,
-        borderRadius: 10
+        width: 337,
+        height: 337,
     },
     pickContainer:{
         padding: 19

@@ -11,7 +11,7 @@ export default function HomeScreen({ navigation }) {
  
 
     const renderItem = ({ item }) => (
-        <HomeListBox itemData={item} />
+        <HomeListBox itemData={item} navigation={navigation}/>
         );
 
 
@@ -43,12 +43,13 @@ export default function HomeScreen({ navigation }) {
       <Text style={styles.section3title}>MEET OUR BOXES</Text>
 
       <FlatList
-      numColumns={2}
-  style={styles.boxlist}
-  data={getAllBoxs()}
-  renderItem={({ item }) => <HomeListBox itemData={item} navigation={navigation} />}
-  keyExtractor={item => item.id} 
-/>
+        numColumns={2}
+        style={styles.boxlist}
+        data={getAllBoxs()}
+        // renderItem={({ item }) => <HomeListBox itemData={item} navigation={navigation} />}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}  
+      />
 
 
 

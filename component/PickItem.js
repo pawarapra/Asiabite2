@@ -12,7 +12,9 @@ export default function PickItem({ box }){
 
     return(
         <View style={myStyles.container}>
-            <Text style={{paddingBottom: 16}}>
+            <Text 
+                h4
+                style={myStyles.pickItemTitle}>
                 THE TOP PICKS THAT COME WITH THIS BOX &#x1F61D;
             </Text>
             <View style={myStyles.itemflex}>
@@ -31,6 +33,9 @@ const myStyles = StyleSheet.create({
         padding: 16,
         backgroundColor: '#F5C94A',
         borderRadius: 10
+    },
+    pickItemTitle:{
+        paddingBottom: 16,
     },
     pickImgStyle: {
         width: 36,

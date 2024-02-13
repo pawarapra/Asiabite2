@@ -21,7 +21,7 @@ export default function ItemSizeCard(){
                     {item.description}
                 </Text>
                 <Text style={myStyles.itemPrice}>
-                    CAD ${item.price}
+                    CAD{item.price}
                 </Text>
             </View>
         </View>
@@ -37,16 +37,23 @@ export default function ItemSizeCard(){
 const myStyles = StyleSheet.create({
     cardContainer:{
         backgroundColor: '#FBFAEE',
-        padding: 16,
-        marginBottom: 16,
+        paddingVertical:2,
+        paddingHorizontal:23,
+        marginBottom: 12,
         flex:1,
         flexDirection: 'row',
+        alignItems:'center',
         padding: 16,
         borderRadius: 15,
+        shadowColor: 'rgb(0, 0, 0)',
+        shadowOffset: { width: 2, height: 2 },
+        shadowOpacity: 1,
+        shadowRadius: 10,
+        elevation: 5,
     },
     sizeImg:{
-        width: 150,
-        height: 107,
+        width: 132,
+        height: 132,
         borderRadius: 10
     },
     sizeDetailBox:{
@@ -54,11 +61,13 @@ const myStyles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'flex-end',
         marginLeft: 18,
+        paddingVertical: 20,
     },
     itemName:{
         textAlign: 'right',
         fontSize: 16,
-        fontWeight: '500',
+        fontWeight: 'normal',
+        fontFamily: 'SpaceGrotesk_500Medium',
     },
     itemDesc: {
         textAlign: 'right'

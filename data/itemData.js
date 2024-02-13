@@ -20,9 +20,10 @@ export default ItemData = [
             require('../assets/white-rabbit.gif'),
             require('../assets/choco-pie.gif'),
             require('../assets/murrang.gif'),
+            require('../assets/calpico.gif'),
             require('../assets/bubble-gum.gif')
         ],
-        img: 'box1.png',
+        img: require('../assets/sweet_box.png'),
         thumbimg: require('../assets/Thumbnail-sweetbite.png')
     },
     {
@@ -35,9 +36,10 @@ export default ItemData = [
             require('../assets/white-rabbit.gif'),
             require('../assets/choco-pie.gif'),
             require('../assets/murrang.gif'),
+            require('../assets/calpico.gif'),
             require('../assets/bubble-gum.gif')
         ],
-        img: 'box1.png',
+        img: require('../assets/savory_box.png'),
         thumbimg: require('../assets/Thumbnail-svorybite.png')         
     },
     {
@@ -50,9 +52,10 @@ export default ItemData = [
             require('../assets/white-rabbit.gif'),
             require('../assets/choco-pie.gif'),
             require('../assets/murrang.gif'),
+            require('../assets/calpico.gif'),
             require('../assets/bubble-gum.gif')
         ],
-        img: 'box1.png',
+        img: require('../assets/spicy_box.png'),
         thumbimg: require('../assets/Thumbnail-spicebite.png')         
     },
     {
@@ -65,9 +68,10 @@ export default ItemData = [
             require('../assets/white-rabbit.gif'),
             require('../assets/choco-pie.gif'),
             require('../assets/murrang.gif'),
+            require('../assets/calpico.gif'),
             require('../assets/bubble-gum.gif')
         ],
-        img:'box1.png',
+        img: require('../assets/healthy_box.png'),
         thumbimg: require('../assets/Thumbnail-healthybite.png')         
     },
     {
@@ -80,9 +84,10 @@ export default ItemData = [
             require('../assets/white-rabbit.gif'),
             require('../assets/choco-pie.gif'),
             require('../assets/murrang.gif'),
+            require('../assets/calpico.gif'),
             require('../assets/bubble-gum.gif')
         ],
-        img: 'box1.png',
+        img: require('../assets/triple_assorted_box.png'),
         thumbimg: require('../assets/Thumbnail-triple.png')          
     },
     {
@@ -95,9 +100,10 @@ export default ItemData = [
             require('../assets/white-rabbit.gif'),
             require('../assets/choco-pie.gif'),
             require('../assets/murrang.gif'),
+            require('../assets/calpico.gif'),
             require('../assets/bubble-gum.gif')
         ],
-        img: 'box1.png' ,
+        img: require('../assets/quad_assorted_box.png'),
         thumbimg: require('../assets/Thumbnail-quad.png')       
     },
 

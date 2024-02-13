@@ -1,3 +1,5 @@
+import { Aleo_400Regular } from '@expo-google-fonts/aleo';
+import { SpaceGrotesk_400Regular } from '@expo-google-fonts/space-grotesk';
 import { createTheme } from '@rneui/themed';
 
 // palette is kept as a separate variable to make it easy to change colours
@@ -79,18 +81,34 @@ export const mainTheme = createTheme({
             },
             h2Style:{
                 color: themePalette.redtheme,
-                fontWeight: 'bold',
-                fontSize: 27, 
+                fontSize: 27,
+                fontWeight: 'normal',
+                fontFamily: 'BalginDisplay-ExtraBold', 
             },
             h3Style:{
                 color: themePalette.creamtheme,
                 fontWeight: 600,
                 fontSize: 22,
                 marginBottom: 14,
+                fontWeight: 'normal',
+                fontFamily: 'Aleo_400Regular',
+                letterSpacing: 1.5,
+            },
+            h4Style:{
+                color: themePalette.primary,
+                fontSize: 12,
+                fontWeight: 'normal',
+                fontFamily: 'Aleo_400Regular', 
+            },
+            h5Style:{
+                fontSize: 12,
+                fontWeight: 'normal',
+                fontFamily: 'Aleo_700Bold',
             },
             style:{
                 color: themePalette.primary,
                 fontSize: 12,
+                fontFamily: 'SpaceGrotesk_400Regular',
                 
             }
         },
