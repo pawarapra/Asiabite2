@@ -18,11 +18,11 @@ export default function ThankyouScreen({ navigation }) {
 
         <View style={styles.lowersection}>
         <Text style={styles.tytext}>
-        Thank you!
+        Thank You!
         </Text>
   
         <Text style={styles.ptext}>
-        for subscribing to our newsletter. We're on the brink of launching something big. Stay tuned for updates!
+        For subscribing to our newsletter. We're on the brink of launching something big. Stay tuned for updates!
         </Text>
   
 
@@ -84,6 +84,8 @@ Click here to resend
         fontSize: 32,
         fontWeight: 800,
         color: '#fbfaee',
+        fontWeight: 'normal',
+        fontFamily: 'BalginDisplay-ExtraBold',
       },
    
     ptext: {
@@ -92,7 +94,9 @@ Click here to resend
       width: 243,
       marginBottom: 20, 
       textAlign: 'justify',
-      letterSpacing: 0.7,
+      letterSpacing: -0.1,
+      fontWeight: 'normal',
+      fontFamily: 'SpaceGrotesk_400Regular',
       
     },
 
@@ -100,7 +104,9 @@ Click here to resend
       marginTop: 20,
       fontSize: 14,
       color: '#fbfaee',
-
+      fontWeight: 'normal',
+      fontFamily: 'SpaceGrotesk_400Regular',
+      
     },
     
     ptext3: {
@@ -108,6 +114,8 @@ Click here to resend
         fontWeight: 'bold',
         color: '#f5c94a',
         textDecorationLine: 'underline',
+        fontWeight: 'normal',
+        fontFamily: 'SpaceGrotesk_700Bold',
       },
 
   

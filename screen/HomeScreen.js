@@ -1,6 +1,7 @@
 import { StyleSheet, View, Text, Image,  FlatList,ScrollView } from 'react-native';
 import { Button } from '@rneui/themed';
 
+
 import  {getAllBoxs}  from '../data/itemData';
 
 import HomeListBox from '../component/HomeListBox';
@@ -156,19 +157,25 @@ export default function HomeScreen({ navigation }) {
 
     heading: {
       color: '#fbfaee',
-      fontWeight: 'bold',
       fontSize: 58,
       marginTop: 10,
       //marginBottom: 5,
+      fontWeight: 'normal',
+      fontFamily: 'BalginDisplay-ExtraBold',
+      textShadowColor: '#000000',
+      textShadowOffset:{width:-1, height:5},
+      textShadowRadius:1,
     },
+    
     subhead: {
-      fontWeight: 'bold',
-      fontSize: 17,
+      fontSize: 18,
       marginBottom: 40,
       textTransform: 'uppercase',
       textAlign: 'center',
       letterSpacing: 0.7,
       width: 300,
+      fontWeight: 'normal',
+      fontFamily: 'Aleo_700Bold',
     },
 
 
@@ -178,6 +185,9 @@ export default function HomeScreen({ navigation }) {
       marginLeft:30,
       fontSize: 16,
       width: 250,
+      fontWeight: 'normal',
+      fontFamily: 'Aleo_400Regular',
+      
     },
     section2Image:{
       width:200,
@@ -187,11 +197,14 @@ export default function HomeScreen({ navigation }) {
       marginBottom: 15,
     },
 
+
     section3title:{
       paddingVertical:20,
       fontWeight: 'bold',
       fontSize:22,
       color: '#fbfaee',
+      fontWeight: 'normal',
+      fontFamily: 'BalginDisplay-ExtraBold',
     },
 
 
@@ -202,7 +215,10 @@ export default function HomeScreen({ navigation }) {
 
     section4title:{
       fontSize: 27,
-      textDecorationLine: 'underline',
+      fontWeight: 'normal',
+      fontFamily: 'Aleo_400Regular',
+      borderBottomColor: '#000000',
+      borderBottomWidth: 1,
 
     },
 
@@ -210,18 +226,27 @@ export default function HomeScreen({ navigation }) {
     section4row:{
       flexDirection: 'row',
       marginVertical:15,
-      width:300,
+      width:303,
+      
     },
     section4num:{
-      fontSize:25,
-      width:20,
-    },
-    section4text:{
-      paddingTop:10,
-      fontSize:14,
-      width:280,
+      color:'#fbfaee',
+      fontSize:35,
+      width:41,
+      fontWeight: 'normal',
+      fontFamily: 'BalginDisplay-ExtraBold',
+      textShadowColor: '#000000',
+      textShadowOffset:{width:2, height:3},
+      textShadowRadius:2,
     },
 
+    section4text:{
+      paddingTop:25,
+      fontSize:14,
+      width:257,
+      fontWeight: 'normal',
+      fontFamily: 'Aleo_400Regular',
+    },
 
 
     section5text1:{
@@ -229,22 +254,38 @@ export default function HomeScreen({ navigation }) {
       width:300,
       color: '#f5c94a',
       textAlign: 'center',
-      zIndex: 1,
-      lineHeight: 40,
+      zIndex: 2,
+      fontWeight: 'normal',
+      fontFamily: 'BalginDisplay-ExtraBold',
+      textShadowColor: '#000000',
+      textShadowOffset:{width:-1, height:5},
+      textShadowRadius:1,
+      lineHeight:50,
     },
     
+    
     section5text2:{
+      zIndex: 1,
+      width: 292,
       fontSize:40,
       color: '#1e3f8e',
       backgroundColor: '#fbfaee',
       textAlign: 'center',
       textTransform: 'uppercase',
-      paddingHorizontal: 90,
       paddingBottom:20,
       paddingTop:60,
       borderRadius:10,
-      marginTop:-50,
+      marginTop:-65,
       marginBottom:20,
+      borderColor:'#000000',
+      borderWidth: 3,
+      shadowColor: 'rgba(0, 0, 0, 0.5)',
+      shadowOffset: { width: 2, height: 2 },
+      shadowOpacity: 0.8,
+      shadowRadius: 4,
+      elevation: 5,
+      fontWeight: 'normal',
+      fontFamily: 'BalginDisplay-ExtraBold',
     },
     
     section5text3:{
@@ -253,6 +294,8 @@ export default function HomeScreen({ navigation }) {
       color: '#fbfaee',
       textAlign: 'center',
       marginBottom:10,
+      fontWeight: 'normal',
+      fontFamily: 'SpaceGrotesk_400Regular',
     },
 
 

@@ -30,7 +30,7 @@ export const mainTheme = createTheme({
                 backgroundColor: buttonColor.buttonYellow ? themePalette.yellowtheme : themePalette.redtheme,
                 justifyContent: 'center', 
                 alignItems: 'center',
-                shadowColor: 'rgba(0, 0, 0, 0.1)',
+                shadowColor: 'rgba(0, 0, 0, 0.8)',
                 shadowOpacity: 0.8 ,
                 elevation: 6,
                 shadowRadius: 15,
@@ -41,6 +41,8 @@ export const mainTheme = createTheme({
                 color: themePalette.creamtheme,
                 fontSize: 22,  
                 textAlign: 'center',
+                fontWeight: 'normal',
+                fontFamily: 'SpaceGrotesk_500Medium',
             },
             disabledStyle: {
                 backgroundColor: themePalette.greyDarker,
@@ -72,8 +74,8 @@ export const mainTheme = createTheme({
                 color: themePalette.primary,
                 fontWeight: 'bold',
                 fontSize: 27,  
-                       
-                // fontFamily: (Platform.OS === 'ios') ? 'Baskerville' : 'serif',                
+                fontWeight: 'normal',
+                fontFamily: 'Aleo_700Bold',             
             },
             h2Style:{
                 color: themePalette.redtheme,

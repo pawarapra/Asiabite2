@@ -55,7 +55,7 @@ export default function SubPage({ navigation }) {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <View style={styles.container1}>
       <View style={styles.topsection}>
-      <Text style={styles.h1} h1>
+      <Text h1 >
         Subscribe To Our Newsletter!
       </Text>
       <Text style={styles.ptext}>
@@ -82,7 +82,7 @@ export default function SubPage({ navigation }) {
             style={isError ? styles.inputError : styles.input}
             onChangeText={(text) => setFirstName(text)}
             value={firstName}
-            placeholder="First Name"
+            placeholder="first name"
             placeholderTextColor="#fbfaee"
           />
           <Text style={styles.inputLabel}>NAME</Text>
@@ -130,9 +130,7 @@ const styles = StyleSheet.create({
     borderTopStartRadius: 25,
     borderTopEndRadius: 25,
   },
-  h1: {
-    textAlign: 'left',
-  },
+
   titleImage: {
     aspectRatio: 1,
     height: 226,
@@ -149,6 +147,8 @@ const styles = StyleSheet.create({
     padding: 10 ,
     color: '#fbfaee',
     borderColor: '#fbfaee',
+    fontWeight: 'normal',
+    fontFamily: 'Aleo_400Regular',
   },
   inputError:{
     height: 43,
@@ -163,12 +163,17 @@ const styles = StyleSheet.create({
   ptext: {
     fontSize: 15,
     textAlign: 'left',
+    fontWeight: 'normal',
+    fontFamily: 'SpaceGrotesk_400Regular',
   },
   ptext2: {
+    width:310,
     marginVertical: 12,
     fontSize: 12,
     textAlign: 'center',
     color: '#fbfaee',
+    fontWeight: 'normal',
+    fontFamily: 'SpaceGrotesk_400Regular',
   },
   inputContainer: {
     position: 'relative',
@@ -183,6 +188,9 @@ const styles = StyleSheet.create({
     left: 10,
     zIndex: 1,
     color: '#fbfaee',
+    fontWeight: 'normal',
+    fontFamily: 'Aleo_400Regular',
+    
   },
   
 
