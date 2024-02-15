@@ -116,6 +116,7 @@ export default function HomeScreen({ navigation }) {
       alignItems: 'center',
       height: '100',
       width: 'auto',
+      paddingBottom: 10,
     },
     section2:{
       backgroundColor: '#fbfaee',
