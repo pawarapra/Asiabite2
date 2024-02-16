@@ -5,6 +5,8 @@ import { getBoxById } from '../data/itemData';
 import PickItem from '../component/PickItem';
 import ItemSizeCard from '../component/ItemSizeCard';
 
+import Lightbox from 'react-native-lightbox';
+
 export default function ItemDetailScreen({ navigation, route }){
     const { itemId } = route.params;
     // const item1 = getBoxById(3);
@@ -20,11 +22,15 @@ export default function ItemDetailScreen({ navigation, route }){
         <View >
           <ScrollView>
             <View>
+
                 <View style={myStyles.imgWarpper}>
+                <Lightbox >
                     <Image
                         style={myStyles.img}
+                        resizeMode="contain"
                         source={cbox.img}
                     />
+                </Lightbox>     
                 </View>
                 <View style={myStyles.pickContainer}>
                     <Text h2>

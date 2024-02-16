@@ -1,13 +1,27 @@
 import { StyleSheet, View, Image } from 'react-native';
 import { Text } from '@rneui/themed';
 
+
+import Lightbox from 'react-native-lightbox';
+
 export default function PickItem({ box }){
+
+    // const activeProps = {
+    //     resizeMode: 'contain',
+    //     flex: 1,
+    //     width: null,
+    //     alignItems: 'center',
+    //  };
+     
     const pickImg = box.pickImgPath.map((item, index) => 
+            <Lightbox >
             <Image 
                 style={myStyles.pickImgStyle}
                 source={item}
                 key={index}
+                 resizeMode="contain"
             />
+            </Lightbox>
     );
 
     return(

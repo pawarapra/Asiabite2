@@ -3,16 +3,20 @@ import { Button, Text } from '@rneui/themed';
 
 import ItemSize from '../data/ItemSize';
 
+import Lightbox from 'react-native-lightbox';
+
 export default function ItemSizeCard(){
     const sizecard = ItemSize.map((item) => (
         <View 
             style={myStyles.cardContainer}
             key={item.id}
         >
+             <Lightbox >
             <Image 
                 style={myStyles.sizeImg}
                 source={item.image}
             />
+            </Lightbox>
             <View style={myStyles.sizeDetailBox}>
                 <Text style={myStyles.itemName}>
                     {item.name}
