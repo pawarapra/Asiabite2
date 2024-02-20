@@ -100,7 +100,7 @@ export default function SubPage({ navigation }) {
             style={isError ? styles.inputError : styles.input}
             onChangeText={(text) => setEmail(text)}
             value={email}
-            placeholder="example@email.com"
+            placeholder={isError ? error : "example@email.com"}
             placeholderTextColor={isError ? "#d13337": "#fbfaee"}
           />
           <Text style={styles.inputLabel}>E-MAIL</Text>
@@ -111,7 +111,7 @@ export default function SubPage({ navigation }) {
             style={isError ? styles.inputError : styles.input}
             onChangeText={(text) => setPhone(text)}
             value={phone}
-            placeholder="604-555-555"
+            placeholder={isError ? error :"604-555-555"}
             placeholderTextColor={isError ? "#d13337": "#fbfaee"}
           />
           <Text style={styles.inputLabel}>Phone</Text>
