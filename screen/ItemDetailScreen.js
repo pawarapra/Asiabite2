@@ -9,10 +9,6 @@ import Lightbox from 'react-native-lightbox';
 
 export default function ItemDetailScreen({ navigation, route }){
     const { itemId } = route.params;
-    // const item1 = getBoxById(3);
-    // const { itemId } = route.params;
-    // const currentBox = ItemdData(itemId);
-    // console.log(item1.img); 
     const cbox = getBoxById(itemId);
     // console.log(itemId);
     // console.log(cbox); 
@@ -22,9 +18,8 @@ export default function ItemDetailScreen({ navigation, route }){
         <View >
           <ScrollView>
             <View>
-
                 <View style={myStyles.imgWarpper}>
-                <Lightbox >
+                <Lightbox>
                     <Image
                         style={myStyles.img}
                         resizeMode="contain"

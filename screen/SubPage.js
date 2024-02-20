@@ -1,7 +1,15 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Image,  TextInput,  KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard,} from "react-native";
+import { 
+  StyleSheet, 
+  View, 
+  Image,  
+  TextInput,  
+  KeyboardAvoidingView, 
+  TouchableWithoutFeedback, 
+  Keyboard,
+} from "react-native";
 import { Text, Button, } from '@rneui/themed';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
 import { db } from '../FirebaseConfig';
@@ -14,38 +22,56 @@ export default function SubPage({ navigation }) {
     backgroundColor:'#f5c94a',}
   });
 
-
-
-
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
+  const [phone, setPhone] = useState('');
   const [isError, isSetError] = useState(false);
 
   const goToThx = () => navigation.navigate('Thankyou')
 
   const dataAdd = () => {
-    if (!email || !firstName) {
-      console.error("Email and first name are required.");
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
+
+    if (!firstName) {
+    console.error("First name is required.");
+    isSetError(true);
+    return;
+    }
+
+    if (!email && !phone) {
+      console.error("Either email or phone is required.");
       isSetError(true);
       return;
     }
 
-    // Validate email format
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      console.error("Invalid email address.");
+    // If email is provided, validate email format
+    if (email && !emailRegex.test(email)) {
+      console.error("Invalid email format.");
       isSetError(true);
       return;
     }
+
+    // If phone is provided, validate phone format
+    if (phone && !phoneRegex.test(phone)) {
+      console.error("Invalid phone format.");
+      isSetError(true);
+      return;
+    }
+
     // Post info to Firebase
     set(ref(db, 'posts/' + firstName), {
       name: firstName,
-      email: email,
+      email: email || null,
+      phone: phone || null,
     }).then(() => {
       //once info is succesfully submitted, direct to ThankyouScreen
       setFirstName('')
       setEmail('')
+      setPhone('')
       goToThx()
+      
     });
     
   }
@@ -80,9 +106,20 @@ export default function SubPage({ navigation }) {
         <View style={styles.inputContainer}>
           <TextInput
             style={isError ? styles.inputError : styles.input}
+            onChangeText={(text) => setPhone(text)}
+            value={phone}
+            placeholder="604-555-555"
+            placeholderTextColor="#fbfaee"
+          />
+          <Text style={styles.inputLabel}>Phone</Text>
+        </View>
+
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={isError ? styles.inputError : styles.input}
             onChangeText={(text) => setFirstName(text)}
             value={firstName}
-            placeholder="first name"
+            placeholder="First name"
             placeholderTextColor="#fbfaee"
           />
           <Text style={styles.inputLabel}>NAME</Text>
@@ -135,9 +172,9 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     height: 226,
     width: '100%',
-    borderRadius: 10,
     marginVertical: 30,
   },
+
   input: {
     height: 43,
     width: '100%',
