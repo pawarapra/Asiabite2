@@ -14,7 +14,17 @@ export default function PickItem({ box }){
     //  };
      
     const pickImg = box.pickImgPath.map((item, index) => 
-            <Lightbox >
+            <Lightbox
+            key={index}
+            renderContent={() => (
+                <View style={myStyles.lightboxContentContainer}>
+                    <Image
+                        style={myStyles.pickImgStyle}
+                        source={item}
+                        resizeMode="contain"
+                    />
+                </View>
+            )}>
             <Image 
                 style={myStyles.pickImgStyle}
                 source={item}
@@ -59,5 +69,10 @@ const myStyles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         justifyContent: 'space-between',
-    }
+    },
+    lightboxContentContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
 })

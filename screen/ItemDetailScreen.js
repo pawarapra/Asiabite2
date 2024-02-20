@@ -1,4 +1,4 @@
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView,  } from 'react-native';
 import { Button, Text, Image } from '@rneui/themed';
 
 import { getBoxById } from '../data/itemData';
@@ -12,14 +12,28 @@ export default function ItemDetailScreen({ navigation, route }){
     const cbox = getBoxById(itemId);
     // console.log(itemId);
     // console.log(cbox); 
-
+    const activeProps = {
+        resizeMode: 'contain',
+        flex: 1,
+        width: null
+     };
 
     return(
         <View >
           <ScrollView>
             <View>
                 <View style={myStyles.imgWarpper}>
-                <Lightbox>
+                <Lightbox
+                 activeProps={activeProps}
+                 renderContent={() => (
+                     <View style={myStyles.lightboxContentContainer}>
+                         <Image
+                             style={myStyles.img}
+                             resizeMode="contain"
+                             source={cbox.img}
+                         />
+                     </View>
+                 )}>
                     <Image
                         style={myStyles.img}
                         resizeMode="contain"
@@ -89,6 +103,10 @@ const myStyles = StyleSheet.create({
         paddingHorizontal: 40,
         color: '#FBFAEE',
         marginBottom: 10,
-    }
+    },lightboxContentContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     
 })

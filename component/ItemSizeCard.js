@@ -11,7 +11,13 @@ export default function ItemSizeCard(){
             style={myStyles.cardContainer}
             key={item.id}
         >
-             <Lightbox >
+             <Lightbox 
+             key={item.id} renderContent={() => (
+                <View style={myStyles.lightboxContentContainer}>
+                    <Image style={myStyles.sizeImg} source={item.image} />
+                </View>
+            )}
+             >
             <Image 
                 style={myStyles.sizeImg}
                 source={item.image}
@@ -79,6 +85,12 @@ const myStyles = StyleSheet.create({
     itemPrice: {
         fontSize: 15,
         color: '#1E3F8E'
-    }
+    },
+    lightboxContentContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        
+    },
 
 })
