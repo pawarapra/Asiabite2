@@ -26,6 +26,7 @@ export default function SubPage({ navigation }) {
   const [firstName, setFirstName] = useState('');
   const [phone, setPhone] = useState('');
   const [isError, isSetError] = useState(false);
+  const [error, setError] = useState('')
 
   const goToThx = () => navigation.navigate('Thankyou')
 
@@ -35,27 +36,29 @@ export default function SubPage({ navigation }) {
     const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
 
     if (!firstName) {
+    setError("First name is required.");
     console.error("First name is required.");
     isSetError(true);
     return;
     }
 
     if (!email && !phone) {
-      console.error("Either email or phone is required.");
+      setError("Either email or phone is required.");
       isSetError(true);
       return;
     }
 
     // If email is provided, validate email format
     if (email && !emailRegex.test(email)) {
-      console.error("Invalid email format.");
+      setError("Invalid email format.");
       isSetError(true);
       return;
     }
 
     // If phone is provided, validate phone format
     if (phone && !phoneRegex.test(phone)) {
-      console.error("Invalid phone format.");
+      setError("Invalid phone number format.");
+      console.error("Invalid phone number format.");
       isSetError(true);
       return;
     }
@@ -98,7 +101,7 @@ export default function SubPage({ navigation }) {
             onChangeText={(text) => setEmail(text)}
             value={email}
             placeholder="example@email.com"
-            placeholderTextColor="#fbfaee"
+            placeholderTextColor={isError ? "#d13337": "#fbfaee"}
           />
           <Text style={styles.inputLabel}>E-MAIL</Text>
         </View>
@@ -109,7 +112,7 @@ export default function SubPage({ navigation }) {
             onChangeText={(text) => setPhone(text)}
             value={phone}
             placeholder="604-555-555"
-            placeholderTextColor="#fbfaee"
+            placeholderTextColor={isError ? "#d13337": "#fbfaee"}
           />
           <Text style={styles.inputLabel}>Phone</Text>
         </View>
@@ -119,8 +122,8 @@ export default function SubPage({ navigation }) {
             style={isError ? styles.inputError : styles.input}
             onChangeText={(text) => setFirstName(text)}
             value={firstName}
-            placeholder="First name"
-            placeholderTextColor="#fbfaee"
+            placeholder={isError ? error : "First name"}
+            placeholderTextColor={isError ? "#d13337": "#fbfaee"}
           />
           <Text style={styles.inputLabel}>NAME</Text>
         </View>
