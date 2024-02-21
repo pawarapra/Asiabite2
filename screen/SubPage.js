@@ -172,9 +172,9 @@ const styles = StyleSheet.create({
   },
 
   titleImage: {
-    aspectRatio: 1,
-    height: 226,
-    width: '100%',
+    //aspectRatio: 1,
+    height: 200,
+    width: 205,
     marginVertical: 30,
   },
 
