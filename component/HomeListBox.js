@@ -4,7 +4,7 @@ import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 export default function HomeListBox({ itemData, navigation }) {
   const handlePress = () => {
     // Navigate to ItemDetailScreen when the thumbnail is pressed
-    navigation.navigate('ItemDetailScreen', { itemId: itemData.id });
+    navigation.navigate('Detail', { itemId: itemData.id });
   };
   // console.log(itemData.id);
 

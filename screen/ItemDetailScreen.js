@@ -65,7 +65,7 @@ export default function ItemDetailScreen({ navigation, route }){
                     <View>
                         <Button 
                             title='Subscribe Now!'
-                            onPress={() => navigation.navigate('SubPage')}
+                            onPress={() => navigation.navigate('Subscription')}
                             subButton={true}
                         />
                     </View>

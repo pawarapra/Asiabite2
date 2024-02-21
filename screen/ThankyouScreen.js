@@ -7,26 +7,22 @@ export default function ThankyouScreen({ navigation }) {
     headerStyle: {
     backgroundColor:'#fbfaee'}
   });
+  
     return(
-       
-      
       <View style={styles.container1}>
-
-          <View style={styles.imgsection}>
-          <Image style={styles.titleImage} source={require('../assets/thanks.png')} />
+        <View style={styles.imgsection}>
+          <Image 
+            style={styles.titleImage} 
+            source={require('../assets/thanks.png')} 
+          />
         </View>
-
         <View style={styles.lowersection}>
-        <Text style={styles.tytext}>
-        Thank You!
-        </Text>
-  
-        <Text style={styles.ptext}>
-        For subscribing to our newsletter. We're on the brink of launching something big. Stay tuned for updates!
-        </Text>
-  
-
-           
+          <Text style={styles.tytext}>
+           Thank You!
+          </Text>
+          <Text style={styles.ptext}>
+            For subscribing to our newsletter. We're on the brink of launching something big. Stay tuned for updates!
+          </Text>
           <Button
             buttonYellow={true}
             title="Go Home"
@@ -34,31 +30,23 @@ export default function ThankyouScreen({ navigation }) {
             onPress={() => navigation.navigate('Home')}
 
           />
-
           <Text style={styles.ptext2}>
-          E-mail not received?
-
-        </Text>
-        <Text style={styles.ptext3}>
-
-Click here to resend
-        </Text>
+            E-mail not received?
+          </Text>
+          <Text style={styles.ptext3}>
+            Click here to resend
+          </Text>
         </View>
-  </View>
-
+      </View>
     );
   }
   
   const styles = StyleSheet.create({
-
-
     container1: {
       flex: 1,    
       justifyContent: 'flex-start',
       backgroundColor: "#1e3f8e",
-
     },
-    
       imgsection:{
         paddingTop:20,
         alignItems: 'center',
@@ -68,8 +56,6 @@ Click here to resend
         borderBottomEndRadius: 25,
         borderBottomStartRadius: 25,
     },
-
-
     lowersection: {
         alignItems: 'center',
         width: '100%',
@@ -78,8 +64,6 @@ Click here to resend
         borderTopStartRadius: 25,
         borderTopEndRadius: 25,
       },
-
-
     tytext:{
         fontSize: 32,
         fontWeight: 800,
@@ -87,7 +71,6 @@ Click here to resend
         fontWeight: 'normal',
         fontFamily: 'BalginDisplay-ExtraBold',
       },
-   
     ptext: {
       fontSize: 15,
       color: '#fbfaee',
@@ -97,18 +80,14 @@ Click here to resend
       letterSpacing: -0.1,
       fontWeight: 'normal',
       fontFamily: 'SpaceGrotesk_400Regular',
-      
     },
-
     ptext2: {
       marginTop: 20,
       fontSize: 14,
       color: '#fbfaee',
       fontWeight: 'normal',
       fontFamily: 'SpaceGrotesk_400Regular',
-      
     },
-    
     ptext3: {
         fontSize: 14,
         fontWeight: 'bold',
@@ -117,7 +96,5 @@ Click here to resend
         fontWeight: 'normal',
         fontFamily: 'SpaceGrotesk_700Bold',
       },
-
-  
   });
   

@@ -11,7 +11,6 @@ import {
 import { Text, Button, } from '@rneui/themed';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-
 import { db } from '../FirebaseConfig';
 import { ref, set } from 'firebase/database';
 
@@ -26,118 +25,124 @@ export default function SubPage({ navigation }) {
   const [firstName, setFirstName] = useState('');
   const [phone, setPhone] = useState('');
   const [isError, isSetError] = useState(false);
-  const [error, setError] = useState('')
+  const [error, setError] = useState('');
 
-  const goToThx = () => navigation.navigate('Thankyou')
+  const goToThx = () => navigation.navigate('Confirmation')
 
   const dataAdd = () => {
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
 
+    const errors = [];
+
     if (!firstName) {
-    setError("First name is required.");
-    console.error("First name is required.");
-    isSetError(true);
-    return;
+      errors.push("*First name is required.");
     }
-
+  
     if (!email && !phone) {
-      setError("Either email or phone is required.");
+      errors.push("*Either email or phone is required.");
+    } else {
+      if (email && !emailRegex.test(email)) {
+        errors.push("*Invalid email format.");
+      }
+  
+      if (phone && !phoneRegex.test(phone)) {
+        errors.push("*Invalid phone number format.");
+      }
+    }
+  
+    // Check if there are any errors
+    if (errors.length > 0) {
+      setError(errors.join("\n")); // Concatenate errors into a single string
       isSetError(true);
       return;
     }
-
-    // If email is provided, validate email format
-    if (email && !emailRegex.test(email)) {
-      setError("Invalid email format.");
-      isSetError(true);
-      return;
-    }
-
-    // If phone is provided, validate phone format
-    if (phone && !phoneRegex.test(phone)) {
-      setError("Invalid phone number format.");
-      console.error("Invalid phone number format.");
-      isSetError(true);
-      return;
-    }
-
+  
     // Post info to Firebase
     set(ref(db, 'posts/' + firstName), {
       name: firstName,
       email: email || null,
       phone: phone || null,
     }).then(() => {
-      //once info is succesfully submitted, direct to ThankyouScreen
-      setFirstName('')
-      setEmail('')
-      setPhone('')
-      goToThx()
-      
+      //once info is successfully submitted, direct to ThankyouScreen
+      setFirstName('');
+      setEmail('');
+      setPhone('');
+      goToThx();
     });
-    
+  
+    // Clear any previous error messages if submission is successful
+    setError('');
+    isSetError(false);
   }
 
   return (
     <KeyboardAwareScrollView behavior="padding" style={styles.flexkeyboard}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-    <View style={styles.container1}>
-      <View style={styles.topsection}>
-      <Text h1 >
-        Subscribe To Our Newsletter!
-      </Text>
-      <Text style={styles.ptext}>
-        Subscribe to our newsletter to be the first to know about product launches and exclusive offers!
-      </Text>
-      </View>
-<View style={styles.imgsection}>
-        <Image style={styles.titleImage} source={require('../assets/sub.png')} />
-</View>
-        <View style={styles.middlesection}>
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={isError ? styles.inputError : styles.input}
-            onChangeText={(text) => setEmail(text)}
-            value={email}
-            placeholder={isError ? error : "example@email.com"}
-            placeholderTextColor={isError ? "#d13337": "#fbfaee"}
-          />
-          <Text style={styles.inputLabel}>E-MAIL</Text>
-        </View>
+        <View style={styles.container1}>
+          <View style={styles.topsection}>
+            <Text h1 >
+              Subscribe To Our Newsletter!
+            </Text>
+            <Text style={styles.ptext}>
+                Subscribe to our newsletter to be the first to know about product launches and exclusive offers!
+            </Text>
+          </View>
+          <View style={styles.imgsection}>
+            <Image 
+              style={styles.titleImage} 
+              source={require('../assets/sub.png')} 
+            />
+          </View>
+          <View style={styles.middlesection}>
+            <View style={styles.inputContainer}>
+              <TextInput
+                style={isError ? styles.inputError : styles.input}
+                onChangeText={(text) => setEmail(text)}
+                value={email}
+                placeholder="example@email.com"
+                placeholderTextColor={isError ? "#d13337": "#fbfaee"}
+              />
+              <Text style={styles.inputLabel}>E-MAIL</Text>
+            </View>
 
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={isError ? styles.inputError : styles.input}
-            onChangeText={(text) => setPhone(text)}
-            value={phone}
-            placeholder={isError ? error :"604-555-555"}
-            placeholderTextColor={isError ? "#d13337": "#fbfaee"}
-          />
-          <Text style={styles.inputLabel}>Phone</Text>
-        </View>
+            <View style={styles.inputContainer}>
+              <TextInput
+                style={isError ? styles.inputError : styles.input}
+                onChangeText={(text) => setPhone(text)}
+                value={phone}
+                placeholder="604-555-555"
+                placeholderTextColor={isError ? "#d13337": "#fbfaee"}
+              />
+              <Text style={styles.inputLabel}>Phone</Text>
+            </View>
 
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={isError ? styles.inputError : styles.input}
-            onChangeText={(text) => setFirstName(text)}
-            value={firstName}
-            placeholder={isError ? error : "First name"}
-            placeholderTextColor={isError ? "#d13337": "#fbfaee"}
-          />
-          <Text style={styles.inputLabel}>NAME</Text>
-        </View>
+            <View style={styles.inputContainer}>
+              <TextInput
+                style={isError ? styles.inputError : styles.input}
+                onChangeText={(text) => setFirstName(text)}
+                value={firstName}
+                placeholder="First name"
+                placeholderTextColor={isError ? "#d13337": "#fbfaee"}
+              />
+              <Text style={styles.inputLabel}>NAME</Text>
+            </View>
 
-        <Button
-          title="Subscribe"
-          onPress={dataAdd}
-        />
-        <Text style={styles.ptext2}>
-        We respect your privacy and will only send you relevant updates about product launches and exclusive offers.
-      </Text>
-      </View>
-</View>
-    </TouchableWithoutFeedback>
+            <View style={{width:'100%', paddingVertical:8,}}>
+              {isError && <Text style={styles.error}>{error}</Text>}
+            </View>
+
+            <Button
+              title="Subscribe"
+              onPress={dataAdd}
+            />
+            <Text style={styles.ptext2}>
+              We respect your privacy and will only send you relevant updates about product launches and exclusive offers.
+            </Text>
+          </View>
+        </View>
+      </TouchableWithoutFeedback>
     </KeyboardAwareScrollView>
   );
 }
@@ -152,7 +157,6 @@ const styles = StyleSheet.create({
     // justifyContent: 'flex-start',
     justifyContent: 'flex-start',
     backgroundColor: "#f5c94a",
-    
   },
     topsection: {
       paddingHorizontal: 20,
@@ -170,14 +174,11 @@ const styles = StyleSheet.create({
     borderTopStartRadius: 25,
     borderTopEndRadius: 25,
   },
-
   titleImage: {
-    //aspectRatio: 1,
     height: 200,
     width: 205,
     marginVertical: 30,
   },
-
   input: {
     height: 43,
     width: '100%',
@@ -218,7 +219,6 @@ const styles = StyleSheet.create({
   inputContainer: {
     position: 'relative',
     width: '100%',
-
   },
   inputLabel: {
     fontSize: 15,
@@ -230,8 +230,8 @@ const styles = StyleSheet.create({
     color: '#fbfaee',
     fontWeight: 'normal',
     fontFamily: 'Aleo_400Regular',
-    
   },
-  
-
+  error: {
+    color:'#d13337',
+  }
 });
